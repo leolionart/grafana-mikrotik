@@ -8,7 +8,7 @@ services:
     container_name: mk_grafana
     restart: always
     volumes:
-      - ./grafana/provisioning/:/etc/grafana/provisioning/
+      - /mnt/sda1/Config/grafana/provisioning/:/etc/grafana/provisioning/
     ports:
       - "3000:3000"
   
@@ -20,8 +20,8 @@ services:
     container_name: mk_prometheus
     restart: always
     volumes:
-      - ./prometheus/:/etc/prometheus
-      - ./prometheus/data/:/prometheus
+      - /mnt/sda1/Config/prometheus/:/etc/prometheus
+      - /mnt/sda1/Config/prometheus/data/:/prometheus
     ports:
       - "9090:9090"
 
@@ -30,7 +30,7 @@ services:
     container_name: mk_snmp_exporter
     restart: always
     volumes:
-      - ./snmp/:/etc/snmp_exporter/
+      - /mnt/sda1/Config/snmp/:/etc/snmp_exporter/
     ports:
       - "9116:9116"
     depends_on:
